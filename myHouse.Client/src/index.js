@@ -1,8 +1,42 @@
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import './App.css';
+
+// import App from './App';
+// import { BrowserRouter } from 'react-router-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+
+// //import registerServiceWorker from './registerServiceWorker';
+
+// const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
+// const rootElement = document.getElementById('root');
+
+// ReactDOM.render(
+//   <BrowserRouter basename={baseUrl}>
+//     <App />
+//   </BrowserRouter>,
+//   rootElement);
+
+// //registerServiceWorker();
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
+
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+// const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
+// const rootElement = document.getElementById('root');
+
+// ReactDOM.render(
+//   <BrowserRouter basename={baseUrl}>
+//     <App />
+//   </BrowserRouter>,
+//   rootElement);
+
 
 ReactDOM.render(
   <React.StrictMode>
