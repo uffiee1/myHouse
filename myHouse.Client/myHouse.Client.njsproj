@@ -43,6 +43,13 @@
     <Content Include="src\App.js" />
     <Content Include="src\App.test.js" />
     <Content Include="src\banner.jpg" />
+    <Content Include="src\components\api-authorization\ApiAuthorizationConstants.js" />
+    <Content Include="src\components\api-authorization\ApiAuthorizationRoutes.js" />
+    <Content Include="src\components\api-authorization\AuthorizeRoute.js" />
+    <Content Include="src\components\api-authorization\AuthorizeService.js" />
+    <Content Include="src\components\api-authorization\Login.js" />
+    <Content Include="src\components\api-authorization\LoginMenu.js" />
+    <Content Include="src\components\api-authorization\Logout.js" />
     <Content Include="src\components\Banner.js" />
     <Content Include="src\components\CarouselFeatured.js" />
     <Content Include="src\components\Header.js" />
@@ -61,6 +68,7 @@
     <Folder Include="public\img\" />
     <Folder Include="src\" />
     <Folder Include="src\components\" />
+    <Folder Include="src\components\api-authorization\" />
     <Folder Include="src\pages\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
