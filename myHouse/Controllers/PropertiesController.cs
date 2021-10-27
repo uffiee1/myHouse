@@ -9,7 +9,6 @@ using myHouse.Models;
 
 namespace myHouse.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class PropertiesController : ControllerBase
     {
@@ -74,7 +73,7 @@ namespace myHouse.Controllers
             if (existProperty != null)
             {
                 property.Id = existProperty.Id;
-                _propertyData.EdiProperty(property);
+                _propertyData.EditProperty(property);
             }
 
             return Ok(property);

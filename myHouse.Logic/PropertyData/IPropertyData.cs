@@ -17,6 +17,6 @@ namespace myHouse.Logic.PropertyData
 
         void DeleteProperty(Property property);
 
-        Property EdiProperty(Property property);
+        Property EditProperty(Property property);
     }
 }

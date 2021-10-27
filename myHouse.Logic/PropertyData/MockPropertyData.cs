@@ -7,7 +7,7 @@ using myHouse.Models;
 
 namespace myHouse.Logic.PropertyData
 {
-    public class PropertyData : IPropertyData
+    public class MockPropertyData : IPropertyData
     {
         private List<Property> _properties = new List<Property>()
         {
@@ -39,7 +39,7 @@ namespace myHouse.Logic.PropertyData
             _properties.Remove(property);
         }
 
-        public Property EdiProperty(Property property)
+        public Property EditProperty(Property property)
         {
             var existProperty = GetProperty(property.Id);
             existProperty.Address = property.Address;

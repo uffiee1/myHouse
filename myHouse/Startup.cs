@@ -47,7 +47,9 @@ namespace myHouse
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "myHouse", Version = "v1" });
             });
 
-            services.AddSingleton<IPropertyData, PropertyData>();
+            // Mocked Data
+            // services.AddSingleton<IPropertyData, MockPropertyData>();
+            services.AddScoped<IPropertyData, SqlPropertyData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
