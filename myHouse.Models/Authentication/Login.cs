@@ -9,11 +9,11 @@ namespace myHouse.Models.Authentication
 {
     public class Login
     {
-        [Required]
+        [Required(ErrorMessage = "Username is Required")]
         [DisplayName("Username")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Password is Required")]
         [DisplayName("Password")]
         public string Password { get; set; }
 

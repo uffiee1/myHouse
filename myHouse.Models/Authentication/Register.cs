@@ -5,30 +5,26 @@ namespace myHouse.Models.Authentication
 {
     public class Register
     {
-        [Required]
+        [Required(ErrorMessage = "Name is Required")]
         [DisplayName("Name")]
         public string Name { get; set; }
 
-        [Required]
-        [DisplayName("Surname")]
-        public string Surname { get; set; }
-
-        [Required]
-        [DisplayName("Email")]
+        [Required(ErrorMessage = "Email is Required")]
         [EmailAddress(ErrorMessage = "Invalid Email Address...")]
+        [DisplayName("Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Username is Required")]
         [DisplayName("Username")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Password is Required")]
         [DisplayName("Password")]
         public string Password { get; set; }
 
-        [Required]
-        [Compare("Password", ErrorMessage = "Passwords do not match...")]
-        [DisplayName("Password Again")]
-        public string RePassword { get; set; }
+        // [Required]
+        // [Compare("Password", ErrorMessage = "Passwords do not match...")]
+        // [DisplayName("Password Again")]
+        // public string RePassword { get; set; }
     }
 }

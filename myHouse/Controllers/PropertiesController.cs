@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using myHouse.Logic.PropertyData;
@@ -40,6 +41,7 @@ namespace myHouse.Controllers
             return NotFound($"Property with id: {id} was not Found");
         }
 
+        // [Authorize]
         [HttpPost]
         [Route("api/[controller]")]
         public IActionResult GetProperty(Property property)
@@ -49,6 +51,7 @@ namespace myHouse.Controllers
                 HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + property.Id, property);
         }
 
+        // [Authorize]
         [HttpDelete]
         [Route("api/[controller]/{id}")]
         public IActionResult DeleteProperty(Guid id)
@@ -64,6 +67,7 @@ namespace myHouse.Controllers
             return NotFound($"Property with id: {id} was not Found");
         }
 
+        // [Authorize]
         [HttpPatch]
         [Route("api/[controller]/{id}")]
         public IActionResult EditProperty(Guid id, Property property)
