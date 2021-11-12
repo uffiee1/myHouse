@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace myHouse.DAL.Migrations
 {
-    public partial class AddToDB : Migration
+    public partial class AppToDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,6 +28,7 @@ namespace myHouse.DAL.Migrations
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    Password = table.Column<string>(type: "text", nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -240,6 +241,29 @@ namespace myHouse.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Estate",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    Price = table.Column<double>(type: "double precision", nullable: false),
+                    City = table.Column<string>(type: "text", nullable: true),
+                    Street = table.Column<string>(type: "text", nullable: true),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    TypeId = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Estate", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Estate_Type_TypeId",
+                        column: x => x.TypeId,
+                        principalTable: "Type",
+                        principalColumn: "TypeId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Property",
                 columns: table => new
                 {
@@ -273,27 +297,6 @@ namespace myHouse.DAL.Migrations
                         principalTable: "Type",
                         principalColumn: "TypeId",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Picture",
-                columns: table => new
-                {
-                    PictureId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    PictureName = table.Column<string>(type: "text", nullable: true),
-                    AdvertId = table.Column<int>(type: "integer", nullable: false),
-                    PropertyId = table.Column<Guid>(type: "uuid", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Picture", x => x.PictureId);
-                    table.ForeignKey(
-                        name: "FK_Picture_Property_PropertyId",
-                        column: x => x.PropertyId,
-                        principalTable: "Property",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -339,9 +342,9 @@ namespace myHouse.DAL.Migrations
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Picture_PropertyId",
-                table: "Picture",
-                column: "PropertyId");
+                name: "IX_Estate_TypeId",
+                table: "Estate",
+                column: "TypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Property_StreetId",
@@ -382,16 +385,16 @@ namespace myHouse.DAL.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Picture");
+                name: "Estate");
+
+            migrationBuilder.DropTable(
+                name: "Property");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Property");
 
             migrationBuilder.DropTable(
                 name: "Street");

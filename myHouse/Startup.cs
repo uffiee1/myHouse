@@ -21,6 +21,7 @@ using Microsoft.Identity.Web;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using myHouse.DAL;
+using myHouse.Logic.EstateData;
 using myHouse.Logic.PropertyData;
 using myHouse.Models.Authentication;
 
@@ -106,9 +107,11 @@ namespace myHouse
                 });
             });
 
+            services.AddScoped<IEstateData, EstateData>();
+
             // Mocked Data
             // services.AddSingleton<IPropertyData, MockPropertyData>();
-            services.AddScoped<IPropertyData, SqlPropertyData>();
+            //services.AddScoped<IPropertyData, SqlPropertyData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

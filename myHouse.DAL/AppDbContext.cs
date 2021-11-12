@@ -22,18 +22,19 @@ namespace myHouse.DAL
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Property> Property { get; set; }
+        // public DbSet<Property> Property { get; set; }
+        public DbSet<Estate> Estate { get; set; }
 
         // public DbSet<Status> Status { get; set; }
-        //
+
         // public DbSet<District> District { get; set; }
-        //
+
         // public DbSet<City> City { get; set; }
-        //
+
         // public DbSet<Street> Street { get; set; }
-        //
+
         // public DbSet<Models.Type> Type { get; set; }
-        //
+
         // public DbSet<Role> Role { get; set; }
     }
 }

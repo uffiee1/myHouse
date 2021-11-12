@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using myHouse.DAL;
@@ -9,9 +10,10 @@ using myHouse.DAL;
 namespace myHouse.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211112020211_AppToDb")]
+    partial class AppToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,6 +184,9 @@ namespace myHouse.DAL.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
+                    b.Property<string>("Password")
+                        .HasColumnType("text");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("text");
 
@@ -211,6 +216,41 @@ namespace myHouse.DAL.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("myHouse.Models.City", b =>
+                {
+                    b.Property<int>("CityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("CityName")
+                        .HasColumnType("text");
+
+                    b.HasKey("CityId");
+
+                    b.ToTable("City");
+                });
+
+            modelBuilder.Entity("myHouse.Models.District", b =>
+                {
+                    b.Property<int>("DistrictId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("DistrictName")
+                        .HasColumnType("text");
+
+                    b.HasKey("DistrictId");
+
+                    b.HasIndex("CityId");
+
+                    b.ToTable("District");
                 });
 
             modelBuilder.Entity("myHouse.Models.Estate", b =>
@@ -244,6 +284,60 @@ namespace myHouse.DAL.Migrations
                     b.ToTable("Estate");
                 });
 
+            modelBuilder.Entity("myHouse.Models.Property", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("text");
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<int>("DistrictId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Floor")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Parcel")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("text");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("Rooms")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("StreetId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TypeId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StreetId");
+
+                    b.HasIndex("TypeId");
+
+                    b.ToTable("Property");
+                });
+
             modelBuilder.Entity("myHouse.Models.Status", b =>
                 {
                     b.Property<int>("StatusId")
@@ -257,6 +351,26 @@ namespace myHouse.DAL.Migrations
                     b.HasKey("StatusId");
 
                     b.ToTable("Status");
+                });
+
+            modelBuilder.Entity("myHouse.Models.Street", b =>
+                {
+                    b.Property<int>("StreetId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("DistrictId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("StreetName")
+                        .HasColumnType("text");
+
+                    b.HasKey("StreetId");
+
+                    b.HasIndex("DistrictId");
+
+                    b.ToTable("Street");
                 });
 
             modelBuilder.Entity("myHouse.Models.Type", b =>
@@ -330,6 +444,17 @@ namespace myHouse.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("myHouse.Models.District", b =>
+                {
+                    b.HasOne("myHouse.Models.City", "City")
+                        .WithMany("Districts")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("City");
+                });
+
             modelBuilder.Entity("myHouse.Models.Estate", b =>
                 {
                     b.HasOne("myHouse.Models.Type", "Type")
@@ -337,6 +462,36 @@ namespace myHouse.DAL.Migrations
                         .HasForeignKey("TypeId");
 
                     b.Navigation("Type");
+                });
+
+            modelBuilder.Entity("myHouse.Models.Property", b =>
+                {
+                    b.HasOne("myHouse.Models.Street", "Street")
+                        .WithMany()
+                        .HasForeignKey("StreetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("myHouse.Models.Type", "Type")
+                        .WithMany()
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Street");
+
+                    b.Navigation("Type");
+                });
+
+            modelBuilder.Entity("myHouse.Models.Street", b =>
+                {
+                    b.HasOne("myHouse.Models.District", "District")
+                        .WithMany("Streets")
+                        .HasForeignKey("DistrictId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("District");
                 });
 
             modelBuilder.Entity("myHouse.Models.Type", b =>
@@ -348,6 +503,16 @@ namespace myHouse.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Status");
+                });
+
+            modelBuilder.Entity("myHouse.Models.City", b =>
+                {
+                    b.Navigation("Districts");
+                });
+
+            modelBuilder.Entity("myHouse.Models.District", b =>
+                {
+                    b.Navigation("Streets");
                 });
 
             modelBuilder.Entity("myHouse.Models.Status", b =>

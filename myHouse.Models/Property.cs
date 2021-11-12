@@ -41,6 +41,6 @@ namespace myHouse.Models
 
         public Type Type { get; set; }
 
-        public List<Picture> Pictures { get; set; }
+        // public List<Picture> Pictures { get; set; }
     }
 }
