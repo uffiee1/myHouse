@@ -89,7 +89,7 @@ namespace myHouse
                     Scheme = "Bearer",
                     BearerFormat = "JWT",
                     In = ParameterLocation.Header,
-                    Description = "Enter `Bearer` [space] and then your valid token in the next input below.\r\n\r\nExample: \"Bearer test\""
+                    Description = "Enter `Bearer` [space] and then your valid token in the next input below.\r\n\r\nExample: \"Bearer UserToken\""
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
@@ -107,11 +107,11 @@ namespace myHouse
                 });
             });
 
-            services.AddScoped<IEstateData, EstateData>();
+            services.AddSignalR();
 
             // Mocked Data
-            // services.AddSingleton<IPropertyData, MockPropertyData>();
-            //services.AddScoped<IPropertyData, SqlPropertyData>();
+            // services.AddSingleton<IEstateData, MockEstateData>();
+            services.AddScoped<IEstateData, EstateData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
