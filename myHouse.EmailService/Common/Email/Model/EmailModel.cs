@@ -8,7 +8,7 @@ namespace myHouse.EmailService.Common.Email.Model
 {
     public class EmailModel
     {
-        public string EmailAdress { get; set; } = string.Empty;
+        public string EmailAdres { get; set; } = string.Empty;
 
         public string Subject { get; set; } = string.Empty;
 

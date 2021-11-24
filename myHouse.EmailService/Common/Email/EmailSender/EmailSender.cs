@@ -12,7 +12,7 @@ namespace myHouse.EmailService.Common.Email.Model.EmailSender
     {
         public static MailjetClient CreateMailjetClient()
         {
-            return new MailjetClient("API_KEY_HERE", "API_SECRET_HERE");
+            return new MailjetClient("Mailjet_Secret_Keys");
         }
 
         protected abstract Task Send(EmailModel email);
@@ -28,7 +28,7 @@ namespace myHouse.EmailService.Common.Email.Model.EmailSender
             {
                 Attachments = emailAttachment,
                 Body = body,
-                EmailAdress = adress,
+                EmailAdres = adress,
                 Subject = subject
             });
         }

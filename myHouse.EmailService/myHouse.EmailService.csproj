@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-	<Import Project="../common.props" />
-	<Import Project="../stylecop.props" />
+	<!-- <Import Project="../common.props" /> -->
+	<!-- <Import Project="../stylecop.props" /> -->
 
 	<PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -9,6 +9,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Mailjet.Api" Version="2.0.2" />
+	  <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
 	</ItemGroup>
 
 </Project>
