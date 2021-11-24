@@ -11,6 +11,7 @@ using myHouse.Models;
 namespace myHouse.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class EstateController : ControllerBase
     {

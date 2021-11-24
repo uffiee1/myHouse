@@ -6,7 +6,10 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import Header from "./components/Header"
 import Home from './pages/Home';
+import Login from './pages/Login';
+import Profile from './pages/Profile';
 import RealEstateDetail from "./pages/RealEstateDetail"
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
         <Header />
         <Route path="/" exact component={Home}></Route>
         <Route path="/realestate/:id" component={RealEstateDetail}></Route>
+        <Route path="/login" exact component={Login}></Route>
+        <Route path="/register" exact component={Register}></Route>
+        <Route path="/profile" exact component={Profile}></Route>
       </div>
     </Router>
   );
