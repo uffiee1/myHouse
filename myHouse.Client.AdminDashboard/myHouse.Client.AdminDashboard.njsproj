@@ -2,14 +2,14 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>myHouse.Client</Name>
-    <RootNamespace>myHouse.Client</RootNamespace>
+    <Name>myHouse.Client.AdminDashboard</Name>
+    <RootNamespace>myHouse.Client.AdminDashboard</RootNamespace>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>7faa118d-81fc-41f8-8def-fbae6487903b</ProjectGuid>
+    <ProjectGuid>c0680a68-890a-4369-b5d6-5c36a6eaba5c</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>
     </StartupFile>
@@ -29,12 +29,22 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="public\" />
+    <Folder Include="src\" />
+    <Folder Include="src\assets\" />
+    <Folder Include="src\components\" />
+    <Folder Include="src\components\sidebar\" />
+    <Folder Include="src\components\topbar\" />
+    <Folder Include="src\pages\" />
+    <Folder Include="src\pages\home\" />
+    <Folder Include="src\pages\userList\" />
+    <Folder Include="src\pages\user\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="public\favicon.ico" />
-    <Content Include="public\img\product1.jpeg" />
-    <Content Include="public\img\product2.jfif" />
     <Content Include="public\index.html" />
     <Content Include="public\logo192.png" />
     <Content Include="public\logo512.png" />
@@ -43,35 +53,20 @@
     <Content Include="README.md" />
     <Content Include="src\App.css" />
     <Content Include="src\App.js" />
-    <Content Include="src\App.test.js" />
-    <Content Include="src\banner.jpg" />
-    <Content Include="src\components\api-authorization\ApiAuthorizationConstants.js" />
-    <Content Include="src\components\api-authorization\ApiAuthorizationRoutes.js" />
-    <Content Include="src\components\api-authorization\AuthorizeRoute.js" />
-    <Content Include="src\components\api-authorization\AuthorizeService.js" />
-    <Content Include="src\components\api-authorization\Login.js" />
-    <Content Include="src\components\api-authorization\LoginMenu.js" />
-    <Content Include="src\components\api-authorization\Logout.js" />
-    <Content Include="src\components\Banner.js" />
-    <Content Include="src\components\CarouselFeatured.js" />
-    <Content Include="src\components\Header.js" />
-    <Content Include="src\components\Title.js" />
-    <Content Include="src\index.css" />
+    <Content Include="src\assets\house1.jpeg" />
+    <Content Include="src\assets\profile1.png" />
+    <Content Include="src\components\sidebar\sidebar.css" />
+    <Content Include="src\components\sidebar\Sidebar.jsx" />
+    <Content Include="src\components\topbar\topbar.css" />
+    <Content Include="src\components\topbar\Topbar.jsx" />
+    <Content Include="src\dummyData.js" />
     <Content Include="src\index.js" />
-    <Content Include="src\logo.svg" />
-    <Content Include="src\pages\Home.js" />
-    <Content Include="src\pages\RealEstateDetail.js" />
-    <Content Include="src\pages\RealEstateList.js" />
-    <Content Include="src\reportWebVitals.js" />
-    <Content Include="src\setupTests.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="public\" />
-    <Folder Include="public\img\" />
-    <Folder Include="src\" />
-    <Folder Include="src\components\" />
-    <Folder Include="src\components\api-authorization\" />
-    <Folder Include="src\pages\" />
+    <Content Include="src\pages\home\home.css" />
+    <Content Include="src\pages\home\Home.jsx" />
+    <Content Include="src\pages\userList\userList.css" />
+    <Content Include="src\pages\userList\UserList.jsx" />
+    <Content Include="src\pages\user\user.css" />
+    <Content Include="src\pages\user\User.jsx" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>
