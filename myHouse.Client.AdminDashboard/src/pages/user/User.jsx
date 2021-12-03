@@ -8,6 +8,7 @@ import {
 } from "@material-ui/icons";
 
 import { Link } from "react-router-dom";
+import ProfilePicture from "../../assets/profile1.png";
 
 export default function User() {
   return (
@@ -21,11 +22,8 @@ export default function User() {
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop">
-            <img
-              src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              alt=""
-              className="userShowImg"
-            />
+            <img src={ProfilePicture} alt="" className="userShowImg" />
+
             <div className="userShowTopTitle">
               <span className="userShowUsername">Jhon Doe</span>
               <span className="userShowUserTitle">Software Engineer</span>
@@ -87,11 +85,8 @@ export default function User() {
             </div>
             <div className="userUpdateRight">
               <div className="userUpdateUpload">
-                <img
-                  className="userUpdateImg"
-                  src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                  alt=""
-                />
+                <img src={ProfilePicture} alt="" className="userUpdateImg" />
+
                 <label htmlFor="file">
                   <Publish className="userUpdateIcon" />
                 </label>

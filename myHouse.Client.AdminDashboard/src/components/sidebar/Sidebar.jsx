@@ -2,11 +2,11 @@ import "./sidebar.css";
 
 import {
   ChatBubbleOutline,
+  HouseTwoTone,
   LineStyle,
   MailOutline,
   PermIdentity,
   Report,
-  Storefront,
   Timeline,
   WorkOutline,
 } from "@material-ui/icons";
@@ -21,10 +21,10 @@ export default function Sidebar() {
           <h3 className="sidebarTitle">Admin Dashboard</h3>
           <ul className="sidebarList">
             <Link to="/" className="link">
-            <li className="sidebarListItem active">
-              <LineStyle className="sidebarIcon" />
-              Home
-            </li>
+              <li className="sidebarListItem active">
+                <LineStyle className="sidebarIcon" />
+                Home
+              </li>
             </Link>
           </ul>
         </div>
@@ -39,7 +39,7 @@ export default function Sidebar() {
             </Link>
             <Link to="/products" className="link">
               <li className="sidebarListItem">
-                <Storefront className="sidebarIcon" />
+                <HouseTwoTone className="sidebarIcon" />
                 Properties
               </li>
             </Link>
