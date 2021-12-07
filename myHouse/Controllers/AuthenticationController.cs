@@ -56,7 +56,7 @@ namespace myHouse.Controllers
             {
                 return StatusCode(
                     StatusCodes.Status500InternalServerError,
-                    new Response { Status = "Error", Message = "Account Creating failed. Please check user details and try again." });
+                    new Response { Status = "Error", Message = result.ToString() });
             }
 
             return Ok(new Response { Status = "Success", Message = "User created Successfully!" });
@@ -86,7 +86,7 @@ namespace myHouse.Controllers
             {
                 return StatusCode(
                     StatusCodes.Status500InternalServerError,
-                    new Response { Status = "Error", Message = "Account Creating failed. Please check user details and try again." });
+                    new Response { Status = "Error", Message = result.ToString() });
             }
 
             if (!await _roleManager.RoleExistsAsync(Role.Administrator))
@@ -144,6 +144,17 @@ namespace myHouse.Controllers
             }
 
             return Unauthorized();
+        }
+
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("jwt");
+
+            return Ok(new
+            {
+                message = "success"
+            });
         }
     }
 }

@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myHouse.Logic", "myHouse.Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myHouse", "myHouse\myHouse.csproj", "{78DEF7E1-9CE2-45FC-A585-3063F03DDE5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myHouse.EmailService", "myHouse.EmailService\myHouse.EmailService.csproj", "{9C37C1B5-BAAE-49F7-A968-6B7EAA8F1265}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myHouse.EmailService", "myHouse.EmailService\myHouse.EmailService.csproj", "{9C37C1B5-BAAE-49F7-A968-6B7EAA8F1265}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -31,14 +31,14 @@ namespace myHouse.EmailService.Common.Email.EmailProvidor
                 }
                 jArray.Add(new JObject
                 {
-                    new JProperty("FromEmail", "u.angay@gmail.com"),
+                    new JProperty("FromEmail", "admin@email.com"),
                     new JProperty("FromName", "Admin"),
                     new JProperty("Recipients", new JArray
                     {
                         new JObject
                         {
-                            new JProperty("Email", email.EmailAdress),
-                            new JProperty("Name", email.EmailAdress),
+                            new JProperty("Email", email.EmailAdres),
+                            new JProperty("Name", email.EmailAdres),
                         }
                     }),
                     new JProperty("Subject", email.Subject),
