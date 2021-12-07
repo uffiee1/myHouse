@@ -24,7 +24,6 @@ using Microsoft.OpenApi.Models;
 using myHouse.DAL;
 using myHouse.EmailService.HostedServices;
 using myHouse.Logic.EstateData;
-using myHouse.Logic.PropertyData;
 using myHouse.Models.Authentication;
 
 namespace myHouse
@@ -152,11 +151,11 @@ namespace myHouse
                 });
             });
 
+            // Logic
             services.AddScoped<IEstateData, EstateData>();
 
             // Mocked Data
-            // services.AddSingleton<IPropertyData, MockPropertyData>();
-            // services.AddScoped<IPropertyData, SqlPropertyData>();
+            // services.AddSingleton<IEstateData, MockEstateData>();
             services.AddSingleton<EmailHostedService>();
             services.AddHostedService(provider => provider.GetService<EmailHostedService>());
         }

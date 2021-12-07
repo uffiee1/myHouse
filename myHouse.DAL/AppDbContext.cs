@@ -22,10 +22,9 @@ namespace myHouse.DAL
             base.OnModelCreating(modelBuilder);
         }
 
-        // public DbSet<Property> Property { get; set; }
         public DbSet<Estate> Estate { get; set; }
 
-        // public DbSet<Status> Status { get; set; }
+        public DbSet<Status> Status { get; set; }
 
         // public DbSet<District> District { get; set; }
 

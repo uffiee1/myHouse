@@ -11,7 +11,6 @@ using myHouse.Models;
 namespace myHouse.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
     [ApiController]
     public class EstateController : ControllerBase
     {
@@ -22,16 +21,14 @@ namespace myHouse.Controllers
             _estateData = estateData;
         }
 
-        // [Authorize]
         [HttpGet]
-        [Route("api/[controller]")]
         public IActionResult GetEstates()
         {
             return Ok(_estateData.GetEstates());
         }
 
         [HttpGet]
-        [Route("api/[controller]/{id}")]
+        [Route("{id}")]
         public IActionResult GetEstate(Guid id)
         {
             var estate = _estateData.GetEstate(id);
@@ -44,9 +41,8 @@ namespace myHouse.Controllers
             return NotFound($"Estate with id: {id} was not Found");
         }
 
-        // [Authorize]
+        [Authorize]
         [HttpPost]
-        [Route("api/[controller]")]
         public IActionResult GetEstate(Estate estate)
         {
             _estateData.AddEstate(estate);
@@ -54,9 +50,9 @@ namespace myHouse.Controllers
                 HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + estate.Id, estate);
         }
 
-        // [Authorize]
+        [Authorize]
         [HttpDelete]
-        [Route("api/[controller]/{id}")]
+        [Route("{id}")]
         public IActionResult DeleteEstate(Guid id)
         {
             var estate = _estateData.GetEstate(id);
@@ -70,9 +66,9 @@ namespace myHouse.Controllers
             return NotFound($"Estate with id: {id} was not Found");
         }
 
-        // [Authorize]
+        [Authorize]
         [HttpPatch]
-        [Route("api/[controller]/{id}")]
+        [Route("{id}")]
         public IActionResult EditEstate(Guid id, Estate estate)
         {
             var existEstate = _estateData.GetEstate(id);
