@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import Title from "../components/Title"
-import { Variables } from '../components/ApiUrls';
-import axios from "axios";
+
+// import { Variables } from '../components/ApiUrls';
+// import axios from "axios";
 
 const RealEstateList = () => {
     const title = {

@@ -23,6 +23,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using myHouse.DAL;
 using myHouse.EmailService.HostedServices;
+using myHouse.Hubs;
 using myHouse.Logic.EstateData;
 using myHouse.Models.Authentication;
 
@@ -180,10 +181,6 @@ namespace myHouse
             }
 
             app.UseCors("CorsPolicy");
-            //app.UseSignalR(routes =>
-            //{
-            //    routes.MapHub<ChatHub>("chat");
-            //});
 
             app.UseHttpsRedirection();
 
@@ -195,6 +192,7 @@ namespace myHouse
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/chat");
             });
         }
     }
