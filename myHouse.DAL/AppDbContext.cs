@@ -35,5 +35,15 @@ namespace myHouse.DAL
         // public DbSet<Models.Type> Type { get; set; }
 
         // public DbSet<Role> Role { get; set; }
+
+        public EstateUnitTestController()
+        {
+            var context = new AppDbContext(dbContextOptions);
+            DummyDataDBInitializer db = new DummyDataDBInitializer();
+            db.Seed(context);
+
+            repository = new PostRepository(context);
+
+        }
     }
 }
