@@ -57,6 +57,7 @@ namespace myHouse
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
             // Add Minimal Requirements
             services.Configure<IdentityOptions>(options =>
             {
@@ -100,6 +101,7 @@ namespace myHouse
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
             });
 
+            services.AddSignalR();
             // JWT Authentication
             services.AddAuthentication(options =>
                 {
@@ -133,7 +135,6 @@ namespace myHouse
                     Scheme = "Bearer",
                     BearerFormat = "JWT",
                     In = ParameterLocation.Header,
-                    Description = "Enter `Bearer` [space] and then your valid token in the next input below.\r\n\r\nExample: \"Bearer [AUTH_KEY]test\""
                     Description = "Enter `Bearer` [space] and then your valid token in the next input below.\r\n\r\nExample: \"Bearer UserToken\""
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -177,6 +178,12 @@ namespace myHouse
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "myHouse v1"));
             }
+
+            app.UseCors("CorsPolicy");
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("chat");
+            });
 
             app.UseHttpsRedirection();
 
