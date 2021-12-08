@@ -38,14 +38,14 @@ namespace myHouse.DAL
 
         // public DbSet<Role> Role { get; set; }
 
-        public EstateUnitTestController()
-        {
-            var context = new AppDbContext(dbContextOptions);
-            DummyDataDBInitializer db = new DummyDataDBInitializer();
-            db.Seed(context);
+        //public EstateUnitTestController()
+        //{
+        //    var context = new AppDbContext(dbContextOptions);
+        //    DummyDataDBInitializer db = new DummyDataDBInitializer();
+        //    db.Seed(context);
 
-            repository = new PostRepository(context);
+        //    repository = new PostRepository(context);
 
-        }
+        //}
     }
 }

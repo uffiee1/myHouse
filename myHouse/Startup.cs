@@ -71,7 +71,7 @@ namespace myHouse
                 options.Password.RequireDigit = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
-            });
+            })));
 
             // CORS Policy Configuration
             services
@@ -180,10 +180,10 @@ namespace myHouse
             }
 
             app.UseCors("CorsPolicy");
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<ChatHub>("chat");
-            });
+            //app.UseSignalR(routes =>
+            //{
+            //    routes.MapHub<ChatHub>("chat");
+            //});
 
             app.UseHttpsRedirection();
 
