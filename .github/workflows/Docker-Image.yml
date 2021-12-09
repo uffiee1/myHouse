@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: docker build --file ./Dockerfile -t my-image-name:$(date +%s) .
+        working-directory: ./myHouse
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        name: Build & push Docker image
+        with:
+          image: uffiee1/myhouse
+          tags: v1, latest
+          registry: docker.io
+          dockerfile: ./myHouse/Dockerfile
