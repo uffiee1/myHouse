@@ -10,9 +10,9 @@ namespace myHouse.EmailService.Common.Email.Model.EmailSender
 {
     public abstract class EmailSender : IEmailSender
     {
-        public static MailjetClient CreateMailjetClient()
+        protected static MailjetClient CreateMailjetClient()
         {
-            return new MailjetClient("Mailjet_Secret_Keys");
+            return new MailjetClient("MailjetClient:API_SECRET", "MailjetClient:API_KEY");
         }
 
         protected abstract Task Send(EmailModel email);

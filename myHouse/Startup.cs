@@ -36,19 +36,11 @@ namespace myHouse
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Azure Jwt Auth
-            // services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //     .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
-
-            // DB Connection MSSQL
-            // services.AddDbContext<AppDbContext>(options =>
-            //     options.UseSqlServer(Configuration.GetConnectionString("myHouse")));
-
             // DB Connection PostgresSQL
             services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql
                 (Configuration.GetConnectionString("myHouse")));
@@ -58,7 +50,6 @@ namespace myHouse
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
             // Add Minimal Requirements
             services.Configure<IdentityOptions>(options =>
             {
@@ -72,10 +63,11 @@ namespace myHouse
                 options.Password.RequireDigit = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
-            })));
+            });
 
             // CORS Policy Configuration
-            services
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+                services
                 .AddCors(options =>
                 {
                     options.AddPolicy(
@@ -94,15 +86,8 @@ namespace myHouse
                             .AllowAnyHeader()
                             .AllowCredentials()
                             .SetIsOriginAllowed(hostName => true));
-                });
+                })));
 
-            // Add Cookie options
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
-            });
-
-            services.AddSignalR();
             // JWT Authentication
             services.AddAuthentication(options =>
                 {
@@ -124,6 +109,12 @@ namespace myHouse
                             new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:SecretKey"]))
                     };
                 });
+
+            // Add Cookie options
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

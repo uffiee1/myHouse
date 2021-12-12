@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 
+import { Link } from "react-router-dom"
 import banner from "../banner.jpg"
 
-const Banner = () => {
+const Search = ({ item }) => {
     const [search, setSearch] = useState();
     const [find, setFind] = useState([]);
     const [word, setWord] = useState("");
     useEffect(() => {
-        setSearch(["test1 ", "test2 ", "test3 "])
+        setSearch(["1", "2", "3", "4", "5", "6"])
     }, [])
     const findSearch = (e) => {
         setWord(e.target.value)
@@ -22,7 +23,11 @@ const Banner = () => {
             return <div className="find-search">
                 {
                     find.map(item => {
-                        return <a key={item} href={item}>{item}</a>
+                        return (
+                            <Link to={`/estate/${item}`}>
+                                <button>{item}</button>
+                            </Link>
+                        )
                     })
                 }
             </div>
@@ -50,4 +55,4 @@ const Banner = () => {
     )
 }
 
-export default Banner;
+export default Search;

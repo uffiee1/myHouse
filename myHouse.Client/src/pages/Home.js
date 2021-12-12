@@ -1,14 +1,20 @@
-import Banner from "../components/Banner"
-import CarouselFeatured from "../components/CarouselFeatured"
+import Banner from "../components/Search"
+import EstateList from "../components/estate/EstateList"
 import React from 'react'
-import RealEstateList from "./RealEstateList"
+import RecentEstateList from "../components/RecentEstateList"
+
+// import CarouselFeatured from "../components/CarouselFeatured"
+
+
+
+// import RealEstateList from "./RealEstateList"
 
 const Home = () => {
     return (
         <React.Fragment>
             <Banner />
-            <RealEstateList />
-            <CarouselFeatured />
+            <EstateList />
+            <RecentEstateList />
         </React.Fragment>
     )
 }
