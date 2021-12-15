@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-function Profile() {
+import axios from "axios";
 
+function Welcome() {
   const [name, setName] = useState("");
 
   useEffect(() => {
     (async () => {
-      const response = await fetch("https://localhost:5000/api/Authentication/user", {
-        // const response = await fetch("https://localhost:44311/api/Authentication/user", {
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://localhost:44311/api/Authentication/user",
+        {
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+        }
+      );
 
       const content = await response.json();
 
@@ -24,7 +27,6 @@ function Profile() {
       {/* Hi, {name} */}
     </div>
   );
-
 }
 
-export default Profile;
+export default Welcome;

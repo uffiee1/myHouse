@@ -13,10 +13,11 @@ function Login() {
   const SignIn = async (e) => {
     e.preventDefault();
 
+    // await fetch("https://localhost:44311/api/Authentication/login", {
     await fetch("https://localhost:44311/api/Authentication/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      credentials: "include",
+      token: "include",
       body: JSON.stringify({
         email,
         password,
@@ -30,7 +31,7 @@ function Login() {
   };
 
   if (redirect) {
-    return <Redirect to="/profile" />;
+    return <Redirect to="/welcome" />;
   }
 
   return (

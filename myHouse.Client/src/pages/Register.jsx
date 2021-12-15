@@ -12,9 +12,11 @@ function Register() {
   const submit = async (e) => {
     e.preventDefault();
 
+    // await fetch("https://localhost:44311/api/Authentication/register", {
     await fetch("https://localhost:44311/api/Authentication/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify({
         name,
         email,

@@ -1,24 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http.Cors;
-using IdentityServer4.EntityFramework.Entities;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Identity.Web;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using myHouse.DAL;
@@ -57,7 +46,6 @@ namespace myHouse
                 options.SignIn.RequireConfirmedAccount = false;
                 options.SignIn.RequireConfirmedEmail = false;
                 options.SignIn.RequireConfirmedPhoneNumber = false;
-                options.SignIn.RequireConfirmedEmail = false;
                 options.Password.RequiredLength = 3;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireDigit = false;
@@ -66,8 +54,7 @@ namespace myHouse
             });
 
             // CORS Policy Configuration
-            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
-                services
+            services
                 .AddCors(options =>
                 {
                     options.AddPolicy(
@@ -86,7 +73,7 @@ namespace myHouse
                             .AllowAnyHeader()
                             .AllowCredentials()
                             .SetIsOriginAllowed(hostName => true));
-                })));
+                });
 
             // JWT Authentication
             services.AddAuthentication(options =>
@@ -116,6 +103,7 @@ namespace myHouse
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
             });
 
+            services.AddSignalR();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -147,14 +135,11 @@ namespace myHouse
 
             // Logic
             services.AddScoped<IEstateData, EstateData>();
-            services.AddSignalR();
 
             // Mocked Data
             // services.AddSingleton<IEstateData, MockEstateData>();
             services.AddSingleton<EmailHostedService>();
             services.AddHostedService(provider => provider.GetService<EmailHostedService>());
-            // services.AddSingleton<IEstateData, MockEstateData>();
-            services.AddScoped<IEstateData, EstateData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -171,8 +156,7 @@ namespace myHouse
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "myHouse v1"));
             }
 
-            app.UseCors("CorsPolicy");
-
+            // app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
 
             app.UseRouting();
