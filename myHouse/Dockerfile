@@ -8,13 +8,23 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+ENV ASPNETCORE_ENVIRONMENT=Development
+
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src
+WORKDIR "/src"
 COPY ["myHouse/myHouse.csproj", "myHouse/"]
-RUN dotnet restore "myHouse/myHouse.csproj"
+COPY ["myHouse.Client/myHouse.Client.njsproj", "myHouse/myHouse.Client/"]
+COPY ["myHouse.DAL/myHouse.DAL.csproj", "myHouse/myHouse.DAL/"]
+COPY ["myHouse.EmailService/myHouse.EmailService.csproj", "myHouse/myHouse.EmailService/"]
+COPY ["myHouse.Logic/myHouse.Logic.csproj", "myHouse/myHouse.Logic/"]
+COPY ["myHouse.Models/myHouse.Models.csproj", "myHouse/myHouse.Models/"]
+COPY ["myHouse.Tests/myHouse.UnitTests.csproj", "myHouse/myHouse.Tests/"]
+
+WORKDIR "./myHouse"
+RUN dotnet restore "./myHouse.csproj"
 COPY . .
-WORKDIR "/src/myHouse"
-RUN dotnet build "myHouse.csproj" -c Release -o /app/build
+WORKDIR "./myHouse"
+RUN dotnet build "./myHouse.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "myHouse.csproj" -c Release -o /app/publish
