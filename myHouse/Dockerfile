@@ -14,11 +14,11 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR "/src"
 COPY ["myHouse/myHouse.csproj", "myHouse/"]
 COPY ["myHouse.Client/myHouse.Client.njsproj", "myHouse/myHouse.Client/"]
+COPY ["myHouse.Client.AdminDashboard.njsproj", "myHouse/myHouse.AdminDashboard/"]
 COPY ["myHouse.DAL/myHouse.DAL.csproj", "myHouse/myHouse.DAL/"]
 COPY ["myHouse.EmailService/myHouse.EmailService.csproj", "myHouse/myHouse.EmailService/"]
 COPY ["myHouse.Logic/myHouse.Logic.csproj", "myHouse/myHouse.Logic/"]
 COPY ["myHouse.Models/myHouse.Models.csproj", "myHouse/myHouse.Models/"]
-COPY ["myHouse.Tests/myHouse.UnitTests.csproj", "myHouse/myHouse.Tests/"]
 
 WORKDIR "./myHouse"
 RUN dotnet restore "./myHouse.csproj"
