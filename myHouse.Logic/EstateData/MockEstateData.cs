@@ -19,7 +19,7 @@ namespace myHouse.Logic.EstateData
                 Price = 1000,
                 City = "MockCity 1",
                 Street = "MockStreet 1",
-                Status = 1
+                isVisible = true
             },
             new Estate()
             {
@@ -28,7 +28,7 @@ namespace myHouse.Logic.EstateData
                 Price = 2000,
                 City = "MockCity 2",
                 Street = "MockStreet 2",
-                Status = 2
+                isVisible = false
             }
         };
 
@@ -51,7 +51,7 @@ namespace myHouse.Logic.EstateData
             existEstate.Price = estate.Price;
             existEstate.City = estate.City;
             existEstate.Street = estate.Street;
-            existEstate.Status = estate.Status;
+            existEstate.isVisible = estate.isVisible;
             return existEstate;
         }
 

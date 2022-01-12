@@ -6,6 +6,6 @@ namespace myHouse.Models.Authentication
     {
         public const string Administrator = "Admin";
         public const string Gebruiker = "User";
-        public const string Gast = "Guest";
+        public const string Makelaar = "Broker";
     }
 }

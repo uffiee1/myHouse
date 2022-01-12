@@ -41,7 +41,7 @@ namespace myHouse.Controllers
             return NotFound($"Estate with id: {id} was not Found");
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpPost]
         public IActionResult GetEstate(Estate estate)
         {
@@ -50,7 +50,7 @@ namespace myHouse.Controllers
                 HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + estate.Id, estate);
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpDelete]
         [Route("{id}")]
         public IActionResult DeleteEstate(Guid id)
@@ -66,7 +66,7 @@ namespace myHouse.Controllers
             return NotFound($"Estate with id: {id} was not Found");
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpPatch]
         [Route("{id}")]
         public IActionResult EditEstate(Guid id, Estate estate)

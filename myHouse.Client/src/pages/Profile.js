@@ -1,30 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-function Profile() {
-
-  const [name, setName] = useState("");
-
-  useEffect(() => {
-    (async () => {
-      const response = await fetch("https://localhost:5000/api/Authentication/user", {
-        // const response = await fetch("https://localhost:44311/api/Authentication/user", {
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
-
-      const content = await response.json();
-
-      setName(content.name);
-    })();
-  });
-
+const Profile = (props) => {
   return (
     <div>
-      {name ? "Hi," + name : "You are not logged in yet."}
-      {/* Hi, {name} */}
+      {props.name
+        ? "Welcome back, " + props.name
+        : "You are not logged in yet."}
     </div>
   );
 
 }
-
 export default Profile;

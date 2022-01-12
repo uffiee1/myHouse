@@ -40,7 +40,7 @@ namespace myHouse.Logic.EstateData
                 existEstate.Price = estate.Price;
                 existEstate.City = estate.City;
                 existEstate.Street = estate.Street;
-                existEstate.Status = estate.Status;
+                existEstate.isVisible = estate.isVisible;
 
                 // existEstate.Type = estate.Type;
                 _estates.Estate.Update(existEstate);

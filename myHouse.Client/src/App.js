@@ -2,7 +2,7 @@
 
 import './App.css';
 
-import React, { Component } from 'react';
+import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import EstateDetail from './components/estate/EstateDetail';
@@ -11,18 +11,34 @@ import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
-import Welcome from './pages/Welcome';
 
 function App() {
+
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    (
+      async () => {
+        const response = await fetch("http://localhost:8000/api/user", {
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+        });
+
+        const content = await response.json();
+
+        setName(content.name);
+      }
+    )();
+  });
+
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar name={name} />
         <Route path="/" exact component={Home}></Route>
-        <Route path="/welcome" exact component={Welcome}></Route>
         <Route path="/login" exact component={Login}></Route>
         <Route path="/register" exact component={Register}></Route>
-        <Route path="/profile" exact component={Profile}></Route>
+        <Route path="/profile" exact component={() => <Profile name={name} />}></Route>
         <Route path="/estate/:id" exact component={EstateDetail}></Route>
       </div>
     </Router>
