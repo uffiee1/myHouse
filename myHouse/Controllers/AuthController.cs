@@ -5,7 +5,6 @@ using myHouse.DAL.Dtos;
 using myHouse.Helpers;
 using myHouse.Logic.UserRepository;
 using myHouse.Models;
-using myHouse.Models.Authentication;
 
 namespace myHouse.Controllers
 {

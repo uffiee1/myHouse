@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace myHouse.DAL.Dtos
+﻿namespace myHouse.DAL.Dtos
 {
     public class LoginDto
     {

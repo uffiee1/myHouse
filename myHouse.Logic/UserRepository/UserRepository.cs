@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using myHouse.DAL;
 using myHouse.Models;
-using myHouse.Models.Authentication;
 
 namespace myHouse.Logic.UserRepository
 {
