@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.Identity.Web.Resource;
 
 namespace myHouse.Controllers
 {
-    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -21,8 +19,6 @@ namespace myHouse.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        // The Web API will only accept tokens 1) for users, and 2) having the "access_as_user" scope for this API
-        // private static readonly string[] ScopeRequiredByApi = new string[] { "access_as_user" };
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
@@ -31,8 +27,6 @@ namespace myHouse.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            // With User Roles
-            // HttpContext.VerifyUserHasAnyAcceptedScope(ScopeRequiredByApi);
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

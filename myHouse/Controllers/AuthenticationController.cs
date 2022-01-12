@@ -99,9 +99,9 @@ namespace myHouse.Controllers
                 await _roleManager.CreateAsync(new IdentityRole(Role.Gebruiker));
             }
 
-            if (!await _roleManager.RoleExistsAsync(Role.Gast))
+            if (!await _roleManager.RoleExistsAsync(Role.Makelaar))
             {
-                await _roleManager.CreateAsync(new IdentityRole(Role.Gast));
+                await _roleManager.CreateAsync(new IdentityRole(Role.Makelaar));
             }
 
             if (await _roleManager.RoleExistsAsync(Role.Administrator))

@@ -16,8 +16,8 @@ namespace myHouse.EmailService.HostedServices
     {
         private Task _sendTask;
         private CancellationTokenSource _cancellationToken;
-        private readonly BufferBlock<EmailModel> _mailQueue;
-        private readonly IEmailSender _mailSender;
+        private BufferBlock<EmailModel> _mailQueue;
+        private IEmailSender _mailSender;
 
         public EmailHostedService()
         {
@@ -29,7 +29,10 @@ namespace myHouse.EmailService.HostedServices
         /// <summary>
         /// Method send email - wakeup BufferBlock.
         /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+#pragma warning disable SA1611 // Element parameters should be documented
         public async Task SendEmailAsync(EmailModel emailModel)
+#pragma warning restore SA1611 // Element parameters should be documented
         {
             await _mailQueue.SendAsync(emailModel);
         }
