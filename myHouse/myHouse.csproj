@@ -26,6 +26,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.11" />
     <PackageReference Include="Microsoft.Identity.Web" Version="1.20.0" />
     <PackageReference Include="Microsoft.Owin.Cors" Version="4.2.0" />
@@ -42,6 +43,10 @@
 		<ProjectReference Include="..\myHouse.DAL\myHouse.DAL.csproj" />
 		<ProjectReference Include="..\myHouse.EmailService\myHouse.EmailService.csproj" />
 		<ProjectReference Include="..\myHouse.Logic\myHouse.Logic.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Pictures\" />
 	</ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 import EstatePic from './assets/house1.jpeg'
 import ProfilePicture from './assets/profile1.png'
+
 export const userRows = [
   {
     id: 1,
@@ -82,7 +83,7 @@ export const userData = [
   },
 ];
 
-export const productData = [
+export const estateData = [
   {
     name: "Mon",
     "Views": 10,
@@ -113,7 +114,7 @@ export const productData = [
   }
 ];
 
-export const productRows = [
+export const estateRows = [
   {
     id: 1,
     name: "Huis 1",

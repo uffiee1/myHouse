@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using myHouse.Logic.EstateData;
 using myHouse.Models;
@@ -10,10 +12,12 @@ namespace myHouse.Controllers
     public class EstateController : ControllerBase
     {
         private IEstateData _estateData;
+        private IWebHostEnvironment _env;
 
-        public EstateController(IEstateData estateData)
+        public EstateController(IEstateData estateData, IWebHostEnvironment env)
         {
             _estateData = estateData;
+            _env = env;
         }
 
         [HttpGet]
@@ -75,6 +79,30 @@ namespace myHouse.Controllers
             }
 
             return Ok(estate);
+        }
+
+        [Route("SavePicture")]
+        [HttpPost]
+        public JsonResult SavePicture()
+        {
+            try
+            {
+                var httpRequest = Request.Form;
+                var postedFile = httpRequest.Files[0];
+                string filename = postedFile.FileName;
+                var physicalPath = _env.ContentRootPath + "/Pictures/" + filename;
+
+                using (var stream = new FileStream(physicalPath, FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                }
+
+                return new JsonResult(filename);
+            }
+            catch (Exception)
+            {
+                return new JsonResult("NoHomePicture.png");
+            }
         }
     }
 }

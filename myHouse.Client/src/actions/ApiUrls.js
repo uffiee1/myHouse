@@ -8,4 +8,5 @@ export const Variables = {
     GetRegisterUrl: apiUrl + "/register",
     GetLogoutUrl: apiUrl + "/logout",
     GetUserUrl: apiUrl + "/user",
+    GetPictureUrl: apiUrl + "/pictures/",
 };

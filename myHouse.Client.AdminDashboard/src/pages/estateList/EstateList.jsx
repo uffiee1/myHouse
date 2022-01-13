@@ -1,14 +1,14 @@
-import "./productList.css";
+import "./estateList.css";
 
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import EstatePic from "../../assets/house1.jpeg";
 import { Link } from "react-router-dom";
-import { productRows } from "../../dummyData";
+import { estateRows } from "../../dummyData";
 import { useState } from "react";
 
-export default function ProductList() {
-  const [data, setData] = useState(productRows);
+export default function EstateList() {
+  const [data, setData] = useState(estateRows);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
@@ -17,13 +17,13 @@ export default function ProductList() {
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
-      field: "product",
+      field: "estate",
       headerName: "Estate",
       width: 200,
       renderCell: (params) => {
         return (
-          <div className="productListItem">
-            <img src={EstatePic} alt="" className="productListImg" />
+          <div className="estateListItem">
+            <img src={EstatePic} alt="" className="estateListImg" />
             {params.row.name}
           </div>
         );
@@ -47,11 +47,11 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row.id}>
-              <button className="productListEdit">Edit</button>
+            <Link to={"/estate/" + params.row.id}>
+              <button className="estateListEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="productListDelete"
+              className="estateListDelete"
               onClick={() => handleDelete(params.row.id)}
             />
           </>
@@ -61,7 +61,7 @@ export default function ProductList() {
   ];
 
   return (
-    <div className="productList">
+    <div className="estateList">
       <DataGrid
         rows={data}
         disableSelectionOnClick

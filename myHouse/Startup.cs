@@ -1,8 +1,11 @@
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.FileProviders.Physical;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using myHouse.DAL;
@@ -79,6 +82,14 @@ namespace myHouse
             {
                 endpoints.MapControllers();
                 endpoints.MapHub<ChatHub>("/chat");
+            });
+
+            // Save Pictures Local
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Pictures")),
+                RequestPath = "/Pictures"
             });
         }
     }

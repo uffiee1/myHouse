@@ -20,8 +20,15 @@ namespace myHouse.Models
         // Type of Estate (Sell/Rent)
         public string Type { get; set; }
 
+        public string Pictures { get; set; }
+
         // public ICollection<User> User { get; set; }
 
         // public List<Picture> Pictures { get; set; }
+
+        // Navigation Properties
+        // public int UserId { get; set; }
+
+        // public User User { get; set; }
     }
 }

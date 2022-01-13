@@ -18,5 +18,8 @@ namespace myHouse.Models
 
         [JsonIgnore]
         public string Password { get; set; }
+
+        // Navigation Properties
+        // public List<Estate> Estates { get; set; }
     }
 }

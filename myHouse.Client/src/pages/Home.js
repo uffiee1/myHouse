@@ -1,5 +1,5 @@
 import Banner from "../components/Search"
-import EstateList from "../components/estate/EstateList"
+import EstateList from "../components/estatee/EstateList"
 import React from 'react'
 import RecentEstateList from "../components/RecentEstateList"
 

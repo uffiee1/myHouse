@@ -11,7 +11,7 @@ export default function WidgetLg() {
       <h3 className="widgetLgTitle">Latest Estates</h3>
       <table className="widgetLgTable">
         <tr className="widgetLgTr">
-          <th className="widgetLgTh">Customer</th>
+          <th className="widgetLgTh">User</th>
           <th className="widgetLgTh">Date</th>
           <th className="widgetLgTh">Price (€)</th>
           <th className="widgetLgTh">Status</th>
