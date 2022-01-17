@@ -1,20 +1,15 @@
 import ImageGallery from 'react-image-gallery';
-import React from "react";
+import React from 'react';
 
 const EstateDetail = () => {
+
+
+
     const images = [
         {
             original: '/img/product1.jpeg',
             thumbnail: '/img/product1.jpeg',
-        },
-        {
-            original: '/img/banner.jpg',
-            thumbnail: '/img/banner.jpg',
-        },
-        {
-            original: '/img/product2.jpeg',
-            thumbnail: '/img/product2.jpeg',
-        },
+        }
     ];
 
     return (
@@ -23,8 +18,6 @@ const EstateDetail = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h1 className="page-title">DETAIL</h1>
-                            <h2 className="page-description">Lorem ipsum dolor sit amet</h2>
                         </div>
                     </div>
                 </div>
@@ -34,12 +27,12 @@ const EstateDetail = () => {
                     <div className="col-lg-12">
                         <div className="fd-top estate-detail-content">
                             <div>
-                                <h3 className="estate-detail-title">Lorem ipsum dolor sit amet.</h3>
+                                <h3 className="estate-detail-title">Donauring 1</h3>
                                 <p className="fd-address"> <i className="fas fa-map-marker-alt"></i>
-                                    Lorem ipsum dolor sit amet</p>
+                                    Veghel</p>
                             </div>
                             <div>
-                                <span className="fd-price">$650</span>
+                                <span className="fd-price">199000€</span>
                             </div>
                         </div>
                         <ImageGallery flickThreshold={0.50} slideDuration={0} items={images} showNav={false} showFullscreenButton={false} showPlayButton={false} />
@@ -47,142 +40,51 @@ const EstateDetail = () => {
                             <div className="col-lg-8">
                                 <div className="fd-item">
                                     <h4>Description</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                                    <p>Huis</p>
                                 </div>
                                 <div className="fd-item fd-property-detail">
                                     <h4>Property Details</h4>
-                                    <div className="row">
-                                        <div className="col-lg-4">
-                                            <span>Kitchen: </span>
-                                            <span>1</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <span>All Rooms: </span>
-                                            <span>5</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <span>Kitchen:  </span>
-                                            <span>1</span>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-lg-4">
-                                            <span>Kitchen: </span>
-                                            <span>1</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <span>All Rooms: </span>
-                                            <span>5</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <span>Kitchen:  </span>
-                                            <span>1</span>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-lg-4">
-                                            <span>Kitchen: </span>
-                                            <span>1</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <span>All Rooms: </span>
-                                            <span>5</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <span>Kitchen:  </span>
-                                            <span>1</span>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div className="fd-item fd-features">
-                                    <h4>Features</h4>
-                                    <div className="row">
-                                        <div className="col-lg-4">
-                                            <i className="fa fa-check"></i>
-                                            <span>Lorem Ipsum</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <i className="fa fa-check" ></i>
-                                            <span>Lorem Ipsum</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <i className="fa fa-check" ></i>
-                                            <span>Lorem Ipsum</span>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-lg-4">
-                                            <i className="fa fa-check" ></i>
-                                            <span>Lorem Ipsum</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <i className="fa fa-check" ></i>
-                                            <span>Lorem Ipsum</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <i className="fa fa-check"></i>
-                                            <span>Lorem Ipsum</span>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-lg-4">
-                                            <i className="fa fa-check" ></i>
-                                            <span>Lorem Ipsum</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <i className="fa fa-check" ></i>
-                                            <span>Lorem Ipsum</span>
-                                        </div>
-                                        <div className="col-lg-4">
-                                            <i className="fa fa-check" ></i>
-                                            <span>Lorem Ipsum</span>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div className="fd-item">
                                     <h4>Maps</h4>
+
+                                    <frame src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=nl&amp;q=Donauring%201+(Huis%201)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="450" loading="lazy"></frame>
+
                                 </div>
-                            </div>
-                            <div className="col-lg-4">
-                                <div className="fd-sidebar-item">
-                                    <h4>Recently Added</h4>
-                                    <div className="recently-item">
-                                        <img src="/img/product1.jpeg" alt="detail" width="50px" />
-                                        <span>Lorem Ipsum Dolor</span>
-                                    </div>
-                                    <div className="recently-item">
-                                        <img src="/img/product1.jpeg" alt="detail" width="50px" />
-                                        <span>Lorem Ipsum Dolor</span>
-                                    </div>
-                                    <div className="recently-item">
-                                        <img src="/img/product1.jpeg" alt="detail" width="50px" />
-                                        <span>Lorem Ipsum Dolor</span>
-                                    </div>
-                                </div>
-                                <div className="fd-sidebar-item">
-                                    <h4>Category</h4>
-                                    <ul className="category-ul">
-                                        <li>Category 1</li>
-                                        <li>Category 2</li>
-                                        <li>Category 3</li>
-                                        <li>Category 4</li>
-                                        <li>Category 5</li>
-                                    </ul>
-                                </div>
-                                <div className="fd-sidebar-item">
-                                    <h4>Recently Added</h4>
-                                    <div className="recently-item">
-                                        <img src="/img/product1.jpeg" alt="detail" width="50px" />
-                                        <span>Lorem Ipsum Dolor</span>
-                                    </div>
-                                    <div className="recently-item">
-                                        <img src="/img/product1.jpeg" alt="detail" width="50px" />
-                                        <span>Lorem Ipsum Dolor</span>
-                                    </div>
-                                    <div className="recently-item">
-                                        <img src="/img/product1.jpeg" alt="detail" width="50px" />
-                                        <span>Lorem Ipsum Dolor</span>
-                                    </div>
+
+                                <div className="fd-item">
+                                    <h4>Make an Appointment</h4>
+                                    <form class="main-form">
+                                        <div class="row mt-5 ">
+                                            <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                                                <input type="text" class="form-control" placeholder="Full name" />
+                                            </div>
+                                            <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+                                                <input type="text" class="form-control" placeholder="Email address.." />
+                                            </div>
+                                            <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+                                                <input type="date" class="form-control" />
+                                            </div>
+                                            <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
+                                                <select name="departement" id="departement" class="custom-select">
+                                                    <option value="general">How many people will attend? </option>
+                                                    <option value="general">1 </option>
+                                                    <option value="general">2 </option>
+                                                    <option value="general">3 </option>
+                                                    <option value="general">4 </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                                                <input type="number" class="form-control" placeholder="Phone" />
+                                            </div>
+                                            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                                                <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter message.."></textarea>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Submit Request</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -192,5 +94,4 @@ const EstateDetail = () => {
         </div>
     )
 }
-
-export default EstateDetail
+export default EstateDetail;

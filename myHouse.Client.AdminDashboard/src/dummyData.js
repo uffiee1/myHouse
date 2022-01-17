@@ -35,51 +35,51 @@ export const userRows = [
 export const userData = [
   {
     name: "Jan",
-    "Active User": 44,
+    "Active User": 2,
   },
   {
     name: "Feb",
-    "Active User": 35,
+    "Active User": 0,
   },
   {
     name: "Mar",
-    "Active User": 58,
+    "Active User": 0,
   },
   {
     name: "Apr",
-    "Active User": 72,
+    "Active User": 0,
   },
   {
     name: "May",
-    "Active User": 12,
+    "Active User": 0,
   },
   {
     name: "Jun",
-    "Active User": 26,
+    "Active User": 0,
   },
   {
     name: "Jul",
-    "Active User": 40,
+    "Active User": 0,
   },
   {
     name: "Agu",
-    "Active User": 32,
+    "Active User": 0,
   },
   {
     name: "Sep",
-    "Active User": 55,
+    "Active User": 0,
   },
   {
     name: "Oct",
-    "Active User": 74,
+    "Active User": 0,
   },
   {
     name: "Nov",
-    "Active User": 24,
+    "Active User": 7,
   },
   {
     name: "Dec",
-    "Active User": 75,
+    "Active User": 11,
   },
 ];
 

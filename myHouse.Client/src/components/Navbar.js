@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import React from "react"
+import Welcome from "../pages/Welcome";
 
 const Navbar = (props) => {
 
@@ -25,9 +26,17 @@ const Navbar = (props) => {
         )
     } else
         menu = (
+
             <ul className="navbar-nav ms-auto">
+                <h4>{Welcome}</h4>
                 <li className="nav-item">
                     <Link className="nav-link" to={"/profile"}>Profile</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to={"/estate"}>Estate</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to={"/user"}>User</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to={"/login"} onClick={logout} >Logout</Link>

@@ -1,15 +1,6 @@
 import "./sidebar.css";
 
-import {
-  ChatBubbleOutline,
-  HouseTwoTone,
-  LineStyle,
-  MailOutline,
-  PermIdentity,
-  Report,
-  Timeline,
-  WorkOutline,
-} from "@material-ui/icons";
+import { HouseTwoTone, LineStyle, PermIdentity } from "@material-ui/icons";
 
 import { Link } from "react-router-dom";
 

@@ -26,14 +26,12 @@ function App() {
           <Route path="/user/:userId">
             <User />
           </Route>
-
           <Route path="/estate">
             <EstateList />
           </Route>
           <Route path="/estate/:estateId">
             <Estate />
           </Route>
-
         </Switch>
       </div>
     </Router>

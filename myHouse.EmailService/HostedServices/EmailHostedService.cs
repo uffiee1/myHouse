@@ -23,13 +23,9 @@ namespace myHouse.EmailService.HostedServices
             _cancellationToken = new CancellationTokenSource();
         }
 
-        /// <summary>
-        /// Method send email - wakeup BufferBlock.
-        /// </summary>
-        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-#pragma warning disable SA1611 // Element parameters should be documented
+#pragma warning disable SA1611
         public async Task SendEmailAsync(EmailModel emailModel)
-#pragma warning restore SA1611 // Element parameters should be documented
+#pragma warning restore SA1611
         {
             await _mailQueue.SendAsync(emailModel);
         }

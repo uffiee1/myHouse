@@ -3,19 +3,28 @@ import Title from "../Title"
 
 const EstateList = () => {
     const title = {
-        text: "Lorem Ipsum",
-        description: "Lorem ipsum dolor sit ame"
+        text: "Nieuwste Huizen",
     }
     return (
         <section className="section-all-re">
             <div className="container">
-                <Title title={title.text} description={title.description} />
+                <Title title={title.text} />
                 <div className="row">
                     <EstateItem id="1" />
+                </div>
+                <div className="row">
                     <EstateItem id="2" />
+                </div>
+                <div className="row">
                     <EstateItem id="3" />
+                </div>
+                <div className="row">
                     <EstateItem id="4" />
+                </div>
+                <div className="row">
                     <EstateItem id="5" />
+                </div>
+                <div className="row">
                     <EstateItem id="6" />
                 </div>
             </div>

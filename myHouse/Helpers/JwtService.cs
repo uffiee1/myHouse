@@ -31,9 +31,9 @@ namespace myHouse.Helpers
                 ValidateIssuerSigningKey = true,
                 ValidateIssuer = false,
                 ValidateAudience = false
-#pragma warning disable SA1117 // Parameters should be on same line or separate lines
+                #pragma warning disable SA1117
             }, out SecurityToken validatedToken);
-#pragma warning restore SA1117 // Parameters should be on same line or separate lines
+                #pragma warning restore SA1117
 
             return (JwtSecurityToken)validatedToken;
         }

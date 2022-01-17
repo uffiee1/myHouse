@@ -17,6 +17,8 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "myHouse.Client.AdminDashboa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myHouse.EmailService", "myHouse.EmailService\myHouse.EmailService.csproj", "{77EDD0E0-1F66-4FB9-9373-0D0203D4485C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myHouse.Tests", "myHouse.Tests\myHouse.Tests.csproj", "{611A1747-A627-4DEC-AAA8-414E1B3E5991}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{77EDD0E0-1F66-4FB9-9373-0D0203D4485C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77EDD0E0-1F66-4FB9-9373-0D0203D4485C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77EDD0E0-1F66-4FB9-9373-0D0203D4485C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{611A1747-A627-4DEC-AAA8-414E1B3E5991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611A1747-A627-4DEC-AAA8-414E1B3E5991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611A1747-A627-4DEC-AAA8-414E1B3E5991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611A1747-A627-4DEC-AAA8-414E1B3E5991}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

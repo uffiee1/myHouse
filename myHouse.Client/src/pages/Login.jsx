@@ -4,11 +4,6 @@ import React, { useState } from "react";
 
 import { Redirect } from "react-router";
 
-// import { Link } from "react-router-dom";
-
-// import { Variables } from "../components/ApiUrls";
-// import axios from "axios";
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

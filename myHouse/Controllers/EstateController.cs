@@ -12,12 +12,17 @@ namespace myHouse.Controllers
     public class EstateController : ControllerBase
     {
         private IEstateData _estateData;
-        private IWebHostEnvironment _env;
 
-        public EstateController(IEstateData estateData, IWebHostEnvironment env)
+        // private IWebHostEnvironment _env;
+
+        // public EstateController(IEstateData estateData, IWebHostEnvironment env)
+        // {
+        //    _estateData = estateData;
+        //    _env = env;
+        // }
+        public EstateController(IEstateData estateData)
         {
             _estateData = estateData;
-            _env = env;
         }
 
         [HttpGet]
@@ -42,7 +47,7 @@ namespace myHouse.Controllers
 
         // [Authorize]
         [HttpPost]
-        public IActionResult GetEstate(Estate estate)
+        public IActionResult CreateEstate(Estate estate)
         {
             _estateData.AddEstate(estate);
             return Created(
@@ -81,28 +86,28 @@ namespace myHouse.Controllers
             return Ok(estate);
         }
 
-        [Route("SavePicture")]
-        [HttpPost]
-        public JsonResult SavePicture()
-        {
-            try
-            {
-                var httpRequest = Request.Form;
-                var postedFile = httpRequest.Files[0];
-                string filename = postedFile.FileName;
-                var physicalPath = _env.ContentRootPath + "/Pictures/" + filename;
+        //[Route("SavePicture")]
+        //[HttpPost]
+        //public JsonResult SavePicture()
+        //{
+        //    try
+        //    {
+        //        var httpRequest = Request.Form;
+        //        var postedFile = httpRequest.Files[0];
+        //        string filename = postedFile.FileName;
+        //        var physicalPath = _env.ContentRootPath + "/Pictures/" + filename;
 
-                using (var stream = new FileStream(physicalPath, FileMode.Create))
-                {
-                    postedFile.CopyTo(stream);
-                }
+        //        using (var stream = new FileStream(physicalPath, FileMode.Create))
+        //        {
+        //            postedFile.CopyTo(stream);
+        //        }
 
-                return new JsonResult(filename);
-            }
-            catch (Exception)
-            {
-                return new JsonResult("NoHomePicture.png");
-            }
-        }
+        //        return new JsonResult(filename);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return new JsonResult("NoHomePicture.png");
+        //    }
+        //}
     }
 }

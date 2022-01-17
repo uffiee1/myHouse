@@ -11,20 +11,22 @@ namespace myHouse.Logic.EstateData
         {
             new Estate()
             {
-                Id = Guid.NewGuid(),
+                Id = new Guid("8cfdea79-9794-4633-bd76-5b4376289a98"),
                 Description = "Estate 1",
-                Price = 1000,
+                Price = 200000,
                 City = "MockCity 1",
                 Street = "MockStreet 1",
+                Type = "Sale",
                 isVisible = true
             },
             new Estate()
             {
-                Id = Guid.NewGuid(),
+                Id = new Guid("8cfdea79-9794-4633-bd76-5b4376289a00"),
                 Description = "Estate 2",
                 Price = 2000,
                 City = "MockCity 2",
                 Street = "MockStreet 2",
+                Type = "Rent",
                 isVisible = false
             }
         };

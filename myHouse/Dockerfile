@@ -19,6 +19,7 @@ COPY ["myHouse.DAL/myHouse.DAL.csproj", "myHouse/myHouse.DAL/"]
 COPY ["myHouse.EmailService/myHouse.EmailService.csproj", "myHouse/myHouse.EmailService/"]
 COPY ["myHouse.Logic/myHouse.Logic.csproj", "myHouse/myHouse.Logic/"]
 COPY ["myHouse.Models/myHouse.Models.csproj", "myHouse/myHouse.Models/"]
+COPY ["myHouse.Tests/myHouse.Tests.csproj", "myHouse/myHouse.Tests/"]
 
 WORKDIR "./myHouse"
 RUN dotnet restore "./myHouse.csproj"

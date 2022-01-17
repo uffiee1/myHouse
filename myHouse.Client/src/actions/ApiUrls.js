@@ -1,12 +1,12 @@
-var apiUrl = "https://localhost:44301/api";
+var apiUrl = "http://localhost:8000/api";
 
-export const Variables = {
+export const variables = {
     BaseUrl: apiUrl,
-    GetAllEstatesUrl: apiUrl + "Estate/EstateAll",
-    GetEstateByIdUrl: apiUrl + "Estate/Estate/id",
+    GetAllEstatesUrl: apiUrl + "/Estate",
+    GetEstateByIdUrl: apiUrl + "/Estate/id",
     GetLoginUrl: apiUrl + "/login",
     GetRegisterUrl: apiUrl + "/register",
     GetLogoutUrl: apiUrl + "/logout",
     GetUserUrl: apiUrl + "/user",
-    GetPictureUrl: apiUrl + "/pictures/",
+    GetPictureUrl: apiUrl + "/Pictures/",
 };

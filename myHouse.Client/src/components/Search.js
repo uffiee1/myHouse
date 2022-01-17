@@ -8,7 +8,7 @@ const Search = ({ item }) => {
     const [find, setFind] = useState([]);
     const [word, setWord] = useState("");
     useEffect(() => {
-        setSearch(["1", "2", "3", "4", "5", "6"])
+        setSearch(["Huis1", "Huis2", "Huis3", "Huis4", "Huis5", "Huis6"])
     }, [])
     const findSearch = (e) => {
         setWord(e.target.value)
