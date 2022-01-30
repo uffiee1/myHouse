@@ -16,14 +16,10 @@
 </div>
 
 ## About The Project
-
 myHouse is a very simple web application where you can use it very easily to buy, sell and rent a house. You can view the listings specific to your area with their prices, and if you wish, the listing option will allow you to view only the properties in the desired category. 
 
-
 ### Built With
-
 #### Backend
-
 - [ASP.NET API](https://dotnet.microsoft.com/en-us/apps/aspnet/apis)
 - [.NET 5](https://dotnet.microsoft.com/en-us/download/dotnet/5.0)
 - [Swagger UI](https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-5.0&tabs=visual-studio)
@@ -33,17 +29,12 @@ myHouse is a very simple web application where you can use it very easily to buy
 - [React.js](https://reactjs.org)
 - [Bootstrap](https://getbootstrap.com)
 - [Prettier](https://prettier.io)
-## Getting Started
 
+<!-- Prerequisites -->
+## Getting Started
 This is how to get the project set up locally!
 
-### Prerequisites
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
+<!-- Installation -->
 ### Installation
 
 1. Clone the repo
@@ -76,6 +67,6 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the Apache License 2.0 License. See `[LICENSE] (https://github.com/uffiee1/myHouse/blob/main/LICENSE)` for more information.
+Distributed under the Apache License 2.0 License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
