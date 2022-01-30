@@ -32,7 +32,7 @@ myHouse is a very simple web application where you can use it very easily to buy
 #### Frontend
 - [React.js](https://reactjs.org)
 - [Bootstrap](https://getbootstrap.com)
-- [Prettier] (https://prettier.io)
+- [Prettier](https://prettier.io)
 ## Getting Started
 
 This is how to get the project set up locally!
@@ -76,6 +76,6 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the Apache License 2.0 License. See `README` for more information.
+Distributed under the Apache License 2.0 License. See `[LICENSE] (https://github.com/uffiee1/myHouse/blob/main/LICENSE)` for more information.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
