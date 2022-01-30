@@ -1,24 +1,21 @@
 <div id="top"></div>
-
 <br />
 <div align="center">
-
   <h3 align="center">myHouse</h3>
-
   <p align="center">
-    Real Estate Web Application
+	Real Estate Web Application
     <br />
-    ·
-    <a href="https://github.com/uffiee1/myHouse/issues/new">Report Bug/</a>
-    ·
+    <a href="https://github.com/uffiee1/myHouse/issues/new">Report Bug / </a>
     <a href="https://github.com/uffiee1/myHouse/discussions">Request Feature</a>
   </p>
 </div>
 
 ## About The Project
+
 myHouse is a very simple web application where you can use it very easily to buy, sell and rent a house. You can view the listings specific to your area with their prices, and if you wish, the listing option will allow you to view only the properties in the desired category. 
 
 ### Built With
+
 #### Backend
 - [ASP.NET API](https://dotnet.microsoft.com/en-us/apps/aspnet/apis)
 - [.NET 5](https://dotnet.microsoft.com/en-us/download/dotnet/5.0)
@@ -36,18 +33,29 @@ This is how to get the project set up locally!
 
 <!-- Installation -->
 ### Installation
-
 1. Clone the repo
    ```sh
-   gh repo clone uffiee1/myHouse
+   
+   https://github.com/uffiee1/myHouse.git
    ```
-2. Add Database Connection string (appsettings.json)
-
+   
+2. Enter Database Connection string `myHouse/appsettings.json`
+   ```js
+   "myHouse": "ENTER YOUR CONNECTION STRING"
+   ```
+   
 3. Redirect to Client project & Install NPM packages
    ```sh
    npm install
    ```
-3.1 For Admin Dashboard repeat step 3. (Client Dashboard)
+3.1 For Admin Dashboard repeat step 3. (Client.Dashboard folder)
+
+<!-- Roadmap -->
+## Roadmap
+
+- Authentication with JWT Token
+- Live chatting (SignalR)
+- Uploading/Storage images in project
 
 <!-- CONTRIBUTING -->
 ## Contributing
